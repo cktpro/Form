@@ -41,10 +41,10 @@ function Form(props) {
       name: Yup.string()
         .min(3, "Mininum 3 characters")
         .max(20, "Maximum 20 characters")
-        .required("Name Required!"),
+        .required("Name is Required!"),
       password: Yup.string()
         .min(6, "Minimum 6 characters")
-        .required("Password Required!"),
+        .required("Password is Required!"),
     }),
 
     onSubmit: (values) => {
@@ -72,8 +72,8 @@ function Form(props) {
 
       case REGISTER_STEP.INFO_STEP:
         return "Agree and continue";
-        case REGISTER_STEP.SUCCESS_STEP:
-            return "Login";
+      case REGISTER_STEP.SUCCESS_STEP:
+        return "Login";
 
       default:
         return "Continue";
@@ -158,6 +158,10 @@ function Form(props) {
 
           {currentStep === REGISTER_STEP.INFO_STEP && (
             <>
+            
+            <div className="term text-start my-3">
+                Look like you don't have an account.<br/>Let create new account for<br/><span className="fw-bolder">{validationEmail.values.email}</span>
+              </div>
               <div className="input-group has-validation mb-3">
                 <div
                   className={`form-floating ${
@@ -214,7 +218,11 @@ function Form(props) {
                 )}
               </div>
               <div className="term text-start my-3">
-                By selecting Agree and continue below,<br/>I agree to <a href="">Terms of Services and Privacy Policy</a>
+                By selecting Agree and continue below,
+                <br />I agree to{" "}
+                <a className="link" href="">
+                  Terms of Services and Privacy Policy
+                </a>
               </div>
             </>
           )}
@@ -228,16 +236,16 @@ function Form(props) {
           )}
 
           {/* {currentStep !== REGISTER_STEP.SUCCESS_STEP && ( */}
-            <button
-              className="btn btn-green w-100 py-3"
-              type="submit"
-              onClick={onClickButton}
-            >
-              {/* {
+          <button
+            className="btn btn-green w-100 py-3"
+            type="submit"
+            onClick={onClickButton}
+          >
+            {/* {
           currentStep === REGISTER_STEP.EMAIL_STEP ? 'Continue' : '| Agree and continue'
         } */}
-              {buttonContent}
-            </button>
+            {buttonContent}
+          </button>
           {/* )} */}
 
           {currentStep === REGISTER_STEP.EMAIL_STEP && (
@@ -269,6 +277,14 @@ function Form(props) {
                 />
                 Continue with Apple
               </button>
+              <div className="term text-start my-3">
+                <p className="mb-0">
+                  Don't have an account? <a className="link" href="#">Sign up</a>
+                </p>
+                <p>
+                  <a  className="link" href="#">Forgot your password?</a>
+                </p>
+              </div>
             </>
           )}
         </div>

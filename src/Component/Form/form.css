@@ -11,11 +11,11 @@
 .box .child{
     opacity: 0.9;
     width: 370px;
-    height: 500px;
+    height: 530px;
     background-color: black;
     position: relative;
     left:15px;
-    top: 175px;
+    top: 155px;
     border-radius: 10px;
     padding: 20px 20px 0 20px;
     color: white;
@@ -48,7 +48,7 @@
 .term{
     font-size: 15px;
 }
-.term a{
+.link{
     text-decoration: none;
     color: rgb(1,195,142)
 }
